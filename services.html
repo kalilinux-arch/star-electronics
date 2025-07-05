@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services | Star Electronics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #111;
+      color: white;
+      margin: 0;
+    }
+
+    nav {
+      background: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #facc15;
+    }
+
+    h3 {
+      color: #facc15;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #facc15;
+      box-shadow: 0 0 20px #facc15;
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .card h4 {
+      color: #facc15;
+      text-align: center;
+    }
+
+    .card p {
+      color: #ccc;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      color: #999;
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1 style="color: #facc15;">Star Electronics</h1>
+    <div>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <h3>Our Services</h3>
+  <div class="services">
+    <div class="card">
+      <div class="service-icon">💰</div>
+      <h4>Money Transfer</h4>
+      <p>Fast, secure money transfer services across India with instant processing.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">📱</div>
+      <h4>Mobile Recharge</h4>
+      <p>All prepaid/postpaid mobile, DTH, and data card recharges available.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">🖨️</div>
+      <h4>Xerox & Print</h4>
+      <p>High-quality B/W and color photocopy and document printing services.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">📷</div>
+      <h4>Passport Photos</h4>
+      <p>Quick, professional passport-size photos printed instantly.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">📝</div>
+      <h4>Stationery</h4>
+      <p>Books, pens, notebooks, and all essential office & school supplies.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">🎁</div>
+      <h4>Gift Items</h4>
+      <p>Thoughtful and budget-friendly gift products for all occasions.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">🔌</div>
+      <h4>Mobile Accessories</h4>
+      <p>Chargers, covers, headphones, and accessories for all mobile brands.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Star Electronics — All rights reserved.
+  </footer>
+</body>
+</html>

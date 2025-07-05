@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Star Electronics - Money transfer, mobile recharge, xerox printing, passport photos, stationery, gifts & mobile accessories. Open 10 AM to 2 PM and 5 PM to 10 PM daily."/>
+  <title>Star Electronics | Your One-Stop Service Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --black: #111;
+      --yellow: #facc15;
+      --white: #fff;
+    }
+
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    html {
+      /* Remove CSS scroll-behavior to use JavaScript implementation */
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: var(--black);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 80px; /* Fixed height for offset calculation */
+    }
+
+    nav h1 {
+      color: var(--yellow);
+      font-weight: 800;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(145deg, var(--black), #1a1a1a);
+    }
+
+    header h2 {
+      color: var(--yellow);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h3 {
+      color: var(--yellow);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 0 20px var(--yellow);
+      transform: translateY(-5px);
+    }
+
+    .card h4 {
+      color: var(--yellow);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 4px 8px rgba(250, 204, 21, 0.2));
+      animation: iconPulse 3s ease-in-out infinite;
+      position: relative;
+    }
+    
+    .service-icon::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+    
+    .card:hover .service-icon {
+      transform: scale(1.2) rotate(360deg);
+      filter: drop-shadow(0 8px 16px rgba(250, 204, 21, 0.4));
+      animation: iconGlow 0.6s ease-in-out;
+    }
+    
+    .card:hover .service-icon::before {
+      opacity: 0.3;
+      width: 100px;
+      height: 100px;
+    }
+    
+    @keyframes iconPulse {
+      0%, 100% { 
+        transform: scale(1);
+        filter: drop-shadow(0 4px 8px rgba(250, 204, 21, 0.2));
+      }
+      50% { 
+        transform: scale(1.05);
+        filter: drop-shadow(0 6px 12px rgba(250, 204, 21, 0.3));
+      }
+    }
+    
+    @keyframes iconGlow {
+      0% { 
+        transform: scale(1.2) rotate(0deg);
+        text-shadow: 0 0 10px var(--yellow);
+      }
+      50% { 
+        transform: scale(1.25) rotate(180deg);
+        text-shadow: 0 0 20px var(--yellow), 0 0 30px var(--white);
+      }
+      100% { 
+        transform: scale(1.2) rotate(360deg);
+        text-shadow: 0 0 15px var(--yellow);
+      }
+    }
+
+    #about p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    #contact p {
+      margin: 1rem 0;
+      color: #ccc;
+      font-size: 1.1rem;
+    }
+
+    #contact a {
+      color: var(--yellow);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    #contact a:hover {
+      color: var(--white);
+    }
+
+    .contact-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4rem;
+    }
+
+    .contact-info {
+      flex: 2;
+    }
+
+    .contact-social {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      min-width: 200px;
+    }
+
+    .contact-social .social-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 1rem;
+    }
+
+    .contact-social .social-icon {
+      color: var(--yellow);
+      font-size: 2.5rem;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-block;
+      filter: drop-shadow(0 4px 8px rgba(250, 204, 21, 0.3));
+      animation: iconPulse 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    .contact-social .social-icon::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .contact-social .social-icon:hover {
+      color: var(--white);
+      transform: scale(1.3) rotate(360deg);
+      filter: drop-shadow(0 8px 16px rgba(250, 204, 21, 0.6));
+      text-shadow: 0 0 20px var(--yellow), 0 0 30px var(--white);
+      animation: iconGlow 0.6s ease-in-out;
+    }
+
+    .contact-social .social-icon:hover::before {
+      opacity: 0.3;
+      width: 80px;
+      height: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .contact-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .contact-social .social-icons {
+        flex-direction: row;
+        gap: 2.5rem;
+      }
+    }
+
+    
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+        height: auto; /* Adjust for mobile */
+        padding: 1rem;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+
+      header h2 {
+        font-size: 2.2rem;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      section:not(#products) {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      }
+    }
+
+    #products {
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 100%;
+  background: #000;
+}
+
+#products .services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <h1>Star Electronics</h1>
+    <div>
+      <a href="services.html">Services</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h2>Your Trusted Service Center</h2>
+    <p>Money Transfer, Recharge, Printing, Mobile Accessories and more.</p>
+  </header>
+
+<section id="products" style="padding: 2rem; background-color: #000;">
+  <h3 style="color: var(--yellow); text-align: center;">🔥 Trending Products</h3>
+  <div id="product-list" class="services">
+    <p>Loading products...</p>
+  </div>
+</section>
+
+  <section id="about">
+    <h3>About Us</h3>
+    <p>At <strong>Star Electronics</strong>, we're dedicated to offering quality services and products with professionalism and care. Located in the heart of Lohegaon community, we strive to meet your daily needs with efficiency, trust, and reliability. From fast money transfers to useful mobile accessories and gift items, we are committed to delivering excellent service to our valued customers.</p>
+  </section>
+
+  <section id="contact">
+    <div class="contact-header">
+      <h3>Contact Us</h3>
+      <h3>Follow Us</h3>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <p><strong>📍 Address:</strong> <a href="https://www.google.com/maps/dir/?api=1&destination=18.590135,73.904818" target="_blank">Opposite RK Restaurant, RK Hotel Chowk Kalwad wasti, Lohegaon, Pune, Maharashtra 411032</a></p>
+        <p><strong>📞 Phone:</strong> <a href="tel:+917776090777">+91 7776090777</a></p>
+        <p><strong>📧 Email:</strong> <a href="mailto:star.electronics6090@gmail.com">star.electronics6090@gmail.com</a></p>
+        <p><strong>🕒 Hours:</strong> 10:00 AM – 2:00 PM | Evening 5:00 PM – 10:00 PM</p>
+      </div>
+      <div class="contact-social">
+        <div class="social-icons">
+          <a href="https://www.facebook.com/share/15atF5nMZS/" target="_blank" class="social-icon">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/shaikhirfan07?igsh=dHIxbjl0ejhsZmJw" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Star Electronics — All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling implementation
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all navigation links
+      const navLinks = document.querySelectorAll('.nav-link');
+      const navbar = document.getElementById('navbar');
+      
+      // Function to get navbar height dynamically
+      function getNavbarHeight() {
+        return navbar.offsetHeight;
+      }
+      
+      // Smooth scroll function with easing
+      function smoothScrollTo(targetPosition, duration = 800) {
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+        
+        // Easing function for smoother animation
+        function ease(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return c / 2 * t * t + b;
+          t--;
+          return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+        
+        function animation(currentTime) {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const run = ease(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, run);
+          if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+        
+        requestAnimationFrame(animation);
+      }
+      
+      // Add click event listeners to navigation links
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            // Calculate target position with navbar offset
+            const navbarHeight = getNavbarHeight();
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20; // 20px extra padding
+            
+            // Perform smooth scroll
+            smoothScrollTo(targetPosition);
+            
+            // Update URL hash without jumping
+            history.pushState(null, null, targetId);
+          }
+        });
+      });
+      
+      // Handle direct hash navigation (e.g., when page loads with #section)
+      function handleHashNavigation() {
+        const hash = window.location.hash;
+        if (hash) {
+          const targetSection = document.querySelector(hash);
+          if (targetSection) {
+            // Delay to ensure page is fully loaded
+            setTimeout(() => {
+              const navbarHeight = getNavbarHeight();
+              const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+              smoothScrollTo(targetPosition);
+            }, 100);
+          }
+        }
+      }
+      
+      // Handle hash navigation on page load
+      handleHashNavigation();
+      
+      // Handle hash changes (browser back/forward)
+      window.addEventListener('hashchange', handleHashNavigation);
+      
+      // Recalculate positions on window resize
+      window.addEventListener('resize', function() {
+        // If there's a current hash, re-scroll to it with new dimensions
+        const hash = window.location.hash;
+        if (hash) {
+          const targetSection = document.querySelector(hash);
+          if (targetSection) {
+            const navbarHeight = getNavbarHeight();
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+            window.scrollTo(0, targetPosition);
+          }
+        }
+      });
+    });
+  </script>
+
+<script>
+  const sheetURL = 'https://script.google.com/macros/s/AKfycby86xlLE4vl_Tm63pc68v7O3tp-OBgvJOYOL97KCMlH9177OuRJWK3R_9CQgipNiZNW9Q/exec';
+
+  fetch(sheetURL)
+    .then(res => res.json())
+    .then(data => {
+      let html = '';
+      data.forEach(item => {
+        html += `
+          <div class="card">
+            <img src="${item.Image}" alt="${item.Name}" style="width:100%; border-radius:8px; margin-bottom:1rem; object-fit:cover;">
+            <h4>${item.Name}</h4>
+            <p>Price: ${item.Price}</p>
+            <a href="${item.Link}" target="_blank" style="color: var(--yellow); text-decoration: underline;">Buy Now</a>
+          </div>
+        `;
+      });
+      document.getElementById("product-list").innerHTML = html;
+    })
+    .catch(err => {
+      document.getElementById("product-list").innerHTML = '<p>Error loading products.</p>';
+      console.error(err);
+    });
+</script>
+</body>
+</html>
